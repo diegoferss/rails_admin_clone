@@ -46,7 +46,7 @@ module RailsAdmin
         end
 
         register_instance_option :link_icon do
-          'test'
+          'icon-copy fa fa-clone'
         end
 
         register_instance_option :pjax? do
