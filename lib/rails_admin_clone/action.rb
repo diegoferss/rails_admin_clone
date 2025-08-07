@@ -18,7 +18,7 @@ module RailsAdmin
         register_instance_option :controller do
           Proc.new do
             model_cloner  = RailsAdminClone::ModelCloner.new(@object)
-            custom_method = model_config.clone_config.custom_method
+            custom_method = model_config.try(:clone_config).try(:custom_method)
 
             if custom_method.present?
               @object = model_cloner.method_clone(custom_method)
@@ -46,7 +46,7 @@ module RailsAdmin
         end
 
         register_instance_option :link_icon do
-          'icon-copy fa fa-files-o'
+          'fa fa-copy'
         end
 
         register_instance_option :pjax? do
